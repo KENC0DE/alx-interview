@@ -6,10 +6,10 @@ Pascal Triangle
 
 def pascal_triangle(n):
     """ Returns Pascal Triangle list """
-    if n <= 0:
-        return []
-
     trig = []
+    if n <= 0:
+        return trig
+
     for i in range(n):
         if i == 0:
             row = [i]
