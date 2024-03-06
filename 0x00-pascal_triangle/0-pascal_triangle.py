@@ -12,7 +12,7 @@ def pascal_triangle(n):
 
     for i in range(n):
         if i == 0:
-            row = [i]
+            row = [i + 1]
             trig.append(row)
         if i == 1:
             row = [i, i]
