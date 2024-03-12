@@ -2,6 +2,8 @@
 """
 LockBoxes
 """
+
+
 def canUnlockAll(boxes):
     def opener(boxes, keys, key):
         if key in keys:
