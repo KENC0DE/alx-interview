@@ -8,7 +8,7 @@ def canUnlockAll(boxes):
     """Try to Unlock"""
     def opener(boxes, keys, key):
         """Recursion Unlock"""
-        if key in keys:
+        if key in keys or key >= len(boxes):
             return
         if boxes[key] == []:
             keys.append(key)
