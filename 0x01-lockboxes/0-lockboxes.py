@@ -1,26 +1,16 @@
 #!/usr/bin/python3
 """
-LockBoxes
+Open boxes.
 """
 
 
 def canUnlockAll(boxes):
-    """Try to Unlock"""
-    if len(boxes) <= 1:
+    """ Unlock Boxes """
+    myKeys = [0]
+    for key in myKeys:
+        for boxKey in boxes[key]:
+            if boxKey not in myKeys and boxKey < len(boxes):
+                myKeys.append(boxKey)
+    if len(myKeys) == len(boxes):
         return True
-
-    def opener(boxes, keys, key):
-        """Recursion Unlock"""
-        if key in keys or key >= len(boxes):
-            return
-        if boxes[key] == []:
-            keys.append(key)
-            return
-        keys.append(key)
-        for i in boxes[key]:
-            opener(boxes, keys, i)
-
-    keys = []
-    key = 0
-    opener(boxes, keys, key)
-    return len(boxes) == len(keys)
+    return False
