@@ -17,8 +17,7 @@ def canUnlockAll(boxes):
         for i in range(len(boxes[key])):
             opener(boxes, keys, boxes[key][i])
 
-    keys = [-1,]
+    keys = []
     key = 0
     opener(boxes, keys, key)
-    keys = keys[1:]
     return len(boxes) == len(keys)
