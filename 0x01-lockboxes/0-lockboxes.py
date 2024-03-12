@@ -14,8 +14,8 @@ def canUnlockAll(boxes):
             keys.append(key)
             return
         keys.append(key)
-        for i in range(len(boxes[key])):
-            opener(boxes, keys, boxes[key][i])
+        for i in boxes[key]:
+            opener(boxes, keys, i)
 
     keys = []
     key = 0
