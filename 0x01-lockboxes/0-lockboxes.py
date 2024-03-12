@@ -6,6 +6,8 @@ LockBoxes
 
 def canUnlockAll(boxes):
     """Try to Unlock"""
+    if len(boxes) <= 1:
+        return True
     def opener(boxes, keys, key):
         """Recursion Unlock"""
         if key in keys or key >= len(boxes):
