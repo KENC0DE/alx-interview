@@ -49,4 +49,4 @@ def minOperations(n):
             return n // 2 + 1
 
     if n % 2 != 0:
-        return (n - 1) // 2 + 1
+        return (n - 1) // 2
