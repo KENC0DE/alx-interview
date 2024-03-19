@@ -4,6 +4,23 @@
 """
 
 
+def is_prime(n):
+    if n <= 1:
+        return False
+    if n <= 3:
+        return True
+    
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i += 6
+    
+    return True
+
 def minOperations(n):
     """
     Calculate the minimum number of
@@ -21,14 +38,8 @@ def minOperations(n):
     if n in [2, 3, 4]:
         return n
 
-    ops = {'copy': 0, 'paste': 0}
-    chrs = 1  # Start with one 'H' character
-
-    for i in range(2, int(n ** 0.5) + 1):
-        if n % i == 0:
-            break
-        else:
-            return n
+    if is_prime(n):
+        return n
 
     if n % 2 == 0:
         if n % 4 != 0:
@@ -36,4 +47,5 @@ def minOperations(n):
         else:
             return n // 2 + 1
 
-    # continue her for odd n.
+    if n % 2 != 0:
+        return (n - 1) / 2
