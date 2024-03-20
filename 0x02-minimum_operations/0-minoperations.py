@@ -2,24 +2,27 @@
 """
 0. Minimum Operations
 """
+import math
 
 
-def is_prime(n):
-    if n <= 1:
-        return False
-    if n <= 3:
-        return True
+def prime_factors(n):
+    """ Gives a list of prime factor of a number """
+    factors = []
+    # Divide by 2 until n is odd
+    while n % 2 == 0:
+        factors.append(2)
+        n //= 2
 
-    if n % 2 == 0 or n % 3 == 0:
-        return False
+    for i in range(3, int(math.sqrt(n)) + 1, 2):
+        while n % i == 0:
+            factors.append(i)
+            n //= i
 
-    i = 5
-    while i * i <= n:
-        if n % i == 0 or n % (i + 2) == 0:
-            return False
-        i += 6
+    # If n is a prime greater than 2
+    if n > 2:
+        factors.append(n)
 
-    return True
+    return factors
 
 
 def minOperations(n):
@@ -39,14 +42,4 @@ def minOperations(n):
     if n in [2, 3, 4]:
         return n
 
-    if is_prime(n):
-        return n
-
-    if n % 2 == 0:
-        if n % 4 != 0:
-            return n // 2 + 2
-        else:
-            return n // 2 + 1
-
-    if n % 2 != 0:
-        return (n - 1) // 2
+    return sum(prime_factors(n))
