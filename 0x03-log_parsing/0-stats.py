@@ -19,6 +19,8 @@ while True:
         nec = line[-2:]
         if len(line) < 5:
             continue
+        elif line[1] != '-':
+            continue
 
         stat_code = int(nec[0])
         file_size = int(nec[1])
