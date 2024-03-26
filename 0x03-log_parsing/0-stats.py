@@ -8,8 +8,8 @@ import sys
 def print_stats(fileSize, statusCode):
     """Print the currenct stats"""
     print('File size: {}'.format(fileSize))
-    for key, val in statusCode.items():
-        if val > 0:
+    for key, val in sorted(statusCode.items()):
+        if val != 0:
             print('{}: {}'.format(key, val))
 
 
