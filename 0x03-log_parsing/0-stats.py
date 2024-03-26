@@ -8,7 +8,7 @@ import sys
 def print_stats(fileSize, statusCode):
     """Print the currenct stats"""
     print('File size: {}'.format(fileSize))
-    for key, val in sorted(statusCode.items()):
+    for key, val in statusCode.items():
         if val != 0:
             print('{}: {}'.format(key, val))
 
@@ -37,5 +37,7 @@ try:
                 print_stats(fileSize, statusCode)
 
                 n_input = 0
+except ValueError:
+    pass
 finally:
     print_stats(fileSize, statusCode)
