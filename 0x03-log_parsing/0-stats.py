@@ -23,21 +23,21 @@ n_input = 0
 
 try:
     for line in sys.stdin:
-        m_line = line.strip().split()
-        nec = m_line[-2:]
-        if len(m_line) >= 5:
+        ln = line.split()
+
+        if len(ln) > 2:
             n_input += 1
 
-            stat_code = int(nec[0])
-            file_size = int(nec[1])
-            statusCode[nec[0]] += 1
-            fileSize += file_size
+            if n_input <= 10:
+                fileSize += int(ln[-1])
+                code = ln[-2]
 
-            if n_input == 10:
+                if (code in statusCode.keys()):
+                    statusCode[code] += 1
+
+            if (n_input == 10):
                 print_stats(fileSize, statusCode)
-
                 n_input = 0
-except ValueError:
-    pass
+
 finally:
     print_stats(fileSize, statusCode)
