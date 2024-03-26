@@ -28,12 +28,6 @@ while True:
         log['fileSize'] += file_size
     except ValueError:
         continue
-    except KeyboardInterrupt:
-        print('File size: {}'.format(log['fileSize']))
-        codes = log['statusCode']
-        for key, val in codes.items():
-            if val > 0:
-                print('{}: {}'.format(key, val))
 
     if n_input == 10:
         print('File size: {}'.format(log['fileSize']))
