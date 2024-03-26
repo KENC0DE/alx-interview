@@ -33,5 +33,9 @@ try:
                     print('{}: {}'.format(key, val))
 
             n_input = 0
-except Exception:
-    pass
+finally:
+    print('File size: {}'.format(log['fileSize']))
+    codes = log['statusCode']
+    for key, val in codes.items():
+        if val > 0:
+            print('{}: {}'.format(key, val))
